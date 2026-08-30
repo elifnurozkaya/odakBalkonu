@@ -1,1 +1,16 @@
+# flutter_lints paketindeki varsayılan iyi uygulamaları dahil ediyoruz
 include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    # Temel hataları ve kullanılmayan kodları yakalamak için ek kurallar
+    avoid_print: true
+    prefer_const_constructors: true
+    prefer_const_declarations: true
+    avoid_empty_else: true
+
+analyzer:
+  errors:
+    # Kullanılmayan değişkenleri 'uyarı' yerine doğrudan 'hata' olarak işaretle
+    unused_local_variable: error
+    unused_import: error

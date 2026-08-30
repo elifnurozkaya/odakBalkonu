@@ -29,6 +29,12 @@ Android 12 (API 31) ve üzerinde uygulamalar, tanımlı istisnalar dışında ar
 
 23 Ağustos 2026 tarihinde `fvm flutter build apk --debug` komutu başarıyla çalıştırılmış ve debug APK oluşturulmuştur.
 
+##### Kod Kalitesi ve Statik Analiz
+Projede kod standartlarını korumak için `flutter_lints` kullanılmaktadır. Geliştirme sürecinde aşağıdaki kurallara uyulmalıdır:
+* **Formatlama:** Kodlar GitHub'a gönderilmeden önce `fvm dart format .` komutu ile formatlanmalıdır (IDE'nizin 'Format on Save' özelliğini açmanız tavsiye edilir).
+* **Statik Analiz:** Hataları yakalamak için düzenli olarak `fvm flutter analyze` komutu çalıştırılmalıdır.
+* **Lint Kapatma Kuralları:** `// ignore_for_file:` kullanılarak dosya çapında lint kurallarının kapatılmasından kaçınılmalıdır. Eğer bir lint kuralı zorunlu olarak ihlal edilecekse (örneğin `// ignore: avoid_print`), aynı satırda bu istisnanın nedeni mutlaka yorum olarak açıklanmalıdır.
+
 ### İlk kurulum
 
 FVM kurulduktan sonra depo kökünde aşağıdaki komut çalıştırılır:
