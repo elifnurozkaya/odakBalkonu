@@ -9,7 +9,7 @@ void main() {
       const calismaSuresiDakika = 30;
 
       // Act
-      final kazanilanYaprak = (calismaSuresiDakika >= 30)
+      const kazanilanYaprak = (calismaSuresiDakika >= 30)
           ? 1
           : 0; // Gerçekte: hesapla(calismaSuresiDakika)
 
