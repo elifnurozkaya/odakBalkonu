@@ -57,4 +57,23 @@ Gelecekteki CI yapılandırması Flutter `3.44.8` sürümünü açıkça kullanm
 
 22 Ağustos 2026 tarihinde `fvm flutter doctor -v` ile yapılan kontrolde Android geliştirme ortamı ile Chrome ve Edge Web hedefleri kullanılabilir durumdadır. Geliştirmeyi engelleyen bilinen bir ortam sorunu bulunmamaktadır.
 
+**Test Standartları ve Kuralları**
+Projede "feature-first" mimari kullanıldığı için `test/` klasör yapısı `lib/` dizinini birebir yansıtmalıdır. Tüm test dosyaları `_test.dart` son ekiyle isimlendirilmelidir.
+
+**Test Türleri**
+* **Unit Test:** Dış bağımlılıklardan izole, tek bir mantıksal birimi (`test` ve `group` kullanılarak) sınar.
+* **Widget Test:** UI bileşenlerinin ekranda doğru çizildiğini ve etkileşimlerini (`testWidgets` kullanılarak) denetler.
+* **Integration Test:** Uçtan uca tüm uygulamanın gerçek cihaz/emülatör üzerindeki davranışını doğrular.
+
+**Arrange-Act-Assert (AAA) Düzeni**
+Her test üç temel aşamadan oluşmalıdır:
+* **Arrange:** Test edilecek veriler, fake nesneler ve arayüz bileşenleri hazırlanır.
+* **Act:** Sınanacak spesifik fonksiyon çağrılır veya widget etkileşimi tetiklenir.
+* **Assert:** Ortaya çıkan sonucun veya ekrandaki durumun beklenen değere eşitliği kontrol edilir.
+
+**Test Çiftleri (Test Doubles) Yaklaşımı**
+* **Fake:** Gerçek çalışan ama hafifletilmiş kopyalardır (Örn: in-memory veritabanı). Yeşeren Zaman projesinin veri testlerinde öncelikli olarak *fakes* yaklaşımı kullanılacaktır.
+* **Mock:** Sadece belirli çağrıları algılamak için dışarıdan programlanan taklitlerdir.
+* **Stub:** Sadece sabit bir yanıt dönen basit kukla nesnelerdir.
+
 Kaynaklar: [Google Play hedef API şartı](https://developer.android.com/google/play/requirements/target-sdk), [Android 13 bildirim izni](https://developer.android.com/develop/ui/compose/notifications/notification-permission), [foreground service kısıtlamaları](https://developer.android.com/develop/background-work/services/fgs/restrictions-bg-start).
