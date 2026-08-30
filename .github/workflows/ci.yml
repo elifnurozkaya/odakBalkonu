@@ -1,0 +1,38 @@
+name: Flutter CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read # Mümkün olan en düşük seviyede izin
+
+jobs:
+  check:
+    name: Format, Lint ve Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Depoyu klonla
+        uses: actions/checkout@v4
+
+      - name: Flutter ortamını kur (3.44.8)
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.44.8'
+          channel: 'stable'
+          cache: true # Hızlandırma için cache aktif
+
+      - name: Bağımlılıkları yükle
+        run: flutter pub get
+
+      - name: Kod formatını denetle
+        run: dart format --output=none --set-exit-if-changed .
+
+      - name: Statik analizi çalıştır
+        run: flutter analyze
+
+      - name: Birim ve widget testlerini çalıştır
+        run: flutter test
