@@ -29,6 +29,15 @@ Android 12 (API 31) ve üzerinde uygulamalar, tanımlı istisnalar dışında ar
 
 23 Ağustos 2026 tarihinde `fvm flutter build apk --debug` komutu başarıyla çalıştırılmış ve debug APK oluşturulmuştur.
 
+Harika, görevdeki son kabul ölçütü olan "Yapılandırma yaklaşımı belgelenmiş" maddesini eritip bu issue'yu tamamen kapatalım.
+
+
+**Merkezi Yapılandırma (AppConfig)**
+* Oyun dengeleri, süreler ve eşikler `lib/core/config/app_config.dart` içinde *immutable* (değiştirilemez) sabitler olarak barındırılır.
+* Geliştirme ve test süreçlerinde bu değerler Riverpod bağımlılık enjeksiyonu (`ProviderContainer`) üzerinden ezilebilir (override).
+* Ekranı açık tutma gibi çalışma zamanında değişen kullanıcı ayarları veya API anahtarları gibi gizli bilgiler bu koda dâhil edilmez.
+
+
 ##### Kod Kalitesi ve Statik Analiz
 Projede kod standartlarını korumak için `flutter_lints` kullanılmaktadır. Geliştirme sürecinde aşağıdaki kurallara uyulmalıdır:
 * **Formatlama:** Kodlar GitHub'a gönderilmeden önce `fvm dart format .` komutu ile formatlanmalıdır (IDE'nizin 'Format on Save' özelliğini açmanız tavsiye edilir).
