@@ -7,6 +7,7 @@ environment:
   sdk: ^3.12.2
 
 dependencies:
+  drift: ^2.34.4
   flutter:
     sdk: flutter
   flutter_localizations:
